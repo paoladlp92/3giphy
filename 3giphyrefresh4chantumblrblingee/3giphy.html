@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Internet Niche</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <LINK href="style8.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="refresh" content="5" >
+      
+</head>
+
+<body>
+  <div class="container1">
+    <div class="row justify-content-center">
+      <div class="col-sm-9">
+   
+
+</div>
+</div>
+</div>
+
+<div class="container2">
+  <div class="row justify-content-center" >
+  <div class="col-sm-3 " >
+    <p>4chan</p>
+</div>
+  <div class="col-sm-3 ">
+      <p>tumblr</p>
+  </div>
+
+  <div class="col-sm-3 ">
+    <p>blingee</p>
+</div>
+
+
+
+
+</div>
+</div>
+
+<div class="container3">
+  <div class="row justify-content-center" >
+  
+    <div class="col-sm-3 ">
+    <div id="images"> </div>
+  </div>
+  <div class="col-sm-3 ">
+    <div id="imagestwo"> </div>
+  </div>
+
+  <div class="col-sm-3 ">
+    <div id="imagesthree"> </div>
+  </div>
+
+
+
+</div>
+</div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Event listener for our internet-button
+    //$("#internet-button").on("click", function() {
+      //$(document).ready(function(){
+        $( window ).on( "load", function() {
+      //event.preventDefault();
+                    //clear();
+
+      // Storing our giphy API URL for a random cat image
+      //Zpf6H2wI6BHIzUiv6hoqUNqeIsoVVKA4
+      //dc6zaTOxFJmzC
+      var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=Zpf6H2wI6BHIzUiv6hoqUNqeIsoVVKA4&tag=4chan";
+      var queryURLtwo = "https://api.giphy.com/v1/gifs/random?api_key=Zpf6H2wI6BHIzUiv6hoqUNqeIsoVVKA4&tag=tumblr";
+      var queryURLthree = "https://api.giphy.com/v1/gifs/random?api_key=Zpf6H2wI6BHIzUiv6hoqUNqeIsoVVKA4&tag=blingee";
+      
+      event.preventDefault();
+          clear();
+      // Perfoming an AJAX GET request to our queryURL
+      $.ajax({
+        url: queryURL,
+        //url: queryURLtwo,
+        method: "GET"
+      })
+
+      
+
+      // After the data from the AJAX request comes back
+        .then(function(response) {
+
+         
+
+        // Saving the image_original_url property
+          var imageUrl = response.data.image_original_url;
+
+          // Creating and storing an image tag
+          var chanImage = $("<img>");
+          
+
+          // Setting the neingagImage src attribute to imageUrl
+          chanImage.attr("src", imageUrl);
+          chanImage.attr("alt", "4chan");
+
+       
+
+          // Prepending the neingagImage to the images div
+          $("#images").prepend(chanImage);
+          
+         
+        });
+    //});
+
+    //other code
+    $.ajax({
+       
+        url: queryURLtwo,
+        method: "GET"
+      })
+
+      
+
+      // After the data from the AJAX request comes back
+        .then(function(response) {
+
+        // Saving the image_original_url property
+          var imageUrl = response.data.image_original_url;
+
+          // Creating and storing an image tag
+         
+          var tumblrImage = $("<img>");
+
+          // Setting the neingagImage src attribute to imageUrl
+         
+
+          tumblrImage.attr("src", imageUrl);
+          tumblrImage.attr("alt", "tumblr");
+
+          // Prepending the neingagImage to the images div
+          $("#imagestwo").prepend(tumblrImage);
+          //$("#images").prepend(chanImage);
+        });
+
+        //other code
+    $.ajax({
+       
+       url: queryURLthree,
+       method: "GET"
+     })
+
+     
+
+     // After the data from the AJAX request comes back
+       .then(function(response) {
+
+       // Saving the image_original_url property
+         var imageUrl = response.data.image_original_url;
+
+         // Creating and storing an image tag
+        
+         var gagImage = $("<img>");
+
+         // Setting the neingagImage src attribute to imageUrl
+        
+
+         gagImage.attr("src", imageUrl);
+         gagImage.attr("alt", "blingee");
+
+         // Prepending the neingagImage to the images div
+         $("#imagesthree").prepend(gagImage);
+         //$("#images").prepend(chanImage);
+       });
+
+          
+        function clear() {
+                    $("#images").empty();
+                    $("#imagestwo").empty();
+                    $("#imagesthree").empty();
+                    $("#imagesfour").empty();
+                  
+                }
+
+        
+    });
+   
+    
+
+
+    
+  </script>
+</body>
+
+</html>
